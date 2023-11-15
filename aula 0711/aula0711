@@ -1,0 +1,41 @@
+%Introdução a PROLOG
+
+%Fatos
+gerou(kelly, maria).
+gerou(cleber, maria).
+gerou(cleber, bruna).
+gerou(maria, julia)
+gerou(maria, pedro).
+gerou(pedro, lucas).
+
+feminino(kelly).
+feminino(maria).
+feminino(julia).
+feminino(bruna).
+
+masculino(cleber).
+masculino(pedro).
+masculino(lucas).
+
+gerou(kelly, x).
+x = maria
+
+gerou(cleber, x).
+x = maria.
+x = bruna
+
+gerou(x, pedro).
+x = maria.
+
+gerou(x, y), gerou(y, pedro).
+x = kelly.
+y = maria.
+x = cleber.
+y = maria.
+
+tiaAvo(x, z):-
+  gerou(x, h), % h = maria
+  gerou(h, y), % y = pedro
+  gerou(y, z), % z = lucas
+  irmao(h, p), % p = bruna
+  feminino(p).
